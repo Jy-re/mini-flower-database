@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import JsonResponse
 from .models import Flowers
+from .forms import AddFlowerForm
 
 def flowers(request):
     # Assuming you have a Flowers model with a queryset
@@ -24,3 +25,20 @@ def add_flower(request):
 
         return render(request, 'flower-home.html', {'flowers': flowers})
     return render(request, 'flower-home.html')  
+
+def edit_flower(request, flower_id):
+    flower = get_object_or_404(Flowers, pk=flower_id)
+
+    if request.method == "POST":
+        form = AddFlowerForm(request.POST, instance=flower)
+        if form.is_valid():
+            form.save()
+            return redirect('flowers')  # Redirect to the list of flowers on successful edit
+        else:
+            # Handle form errors if validation fails
+            pass
+    else:
+        # If it's a GET request, display the form for editing
+        form = AddFlowerForm(instance=flower)
+
+    return render(request, 'editflower.html', {'form': form, 'flower': flower})
