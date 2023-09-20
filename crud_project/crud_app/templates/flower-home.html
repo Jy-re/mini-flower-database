@@ -1,0 +1,32 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Garden Records
+{% endblock %}
+
+{% block content %}
+  {% load static %}
+  <div>
+    <button id="btnAdd">Add Flower</button>
+    <p>Table</p>
+    <table>
+      <tr>
+        <th>Flower Name</th>
+        <th>Scientific Name</th>
+        <th>Season</th>
+        <th>Habitat</th>
+        <th>Edit/Delete</th>
+      </tr>
+      {% for flower in flowers %}
+      <tr>
+        <td>{{ flower.flower_name }}</td>
+        <td>{{ flower.scientific_name }}</td>
+        <td>{{ flower.season }}</td>
+        <td>{{ flower.habitat }}</td>
+        <td>Edit/Delete Buttons</td> <!-- Add edit/delete buttons here -->
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+  {% include 'addflower.html' %}
+{% endblock %}
