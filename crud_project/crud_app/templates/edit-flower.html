@@ -2,8 +2,8 @@
     <div id="editModal{{ flower.id }}" class="modal editModal">
         <div class="modal-content">
             <h3>Edit Flower</h3>
-            {% csrf_token %}
-            <form id="editFlowerForm" data-flower-id="{{ flower.id }}">
+            <form id="editFlowerForm" data-flower-id="{{ flower.id }}" method="post" action="{% url 'edit_flower' flower.id %}">
+                {% csrf_token %}
                 <!-- Add input fields for editing flower data, similar to the addflower.html form -->
                 <div>
                     <label for="editFlowerName">Flower Name</label>
