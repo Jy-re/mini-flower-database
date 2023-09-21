@@ -26,6 +26,7 @@ Watching for file changes with StatReloader
 Flower deleted successfully
 C:\Users\YoYoY\Desktop\DeskFiles\projects\elec4_crud\mini-flower-database\crud_project\crud_app\views.py changed, reloading.
 Watching for file changes with StatReloader
+<<<<<<< HEAD
 Flower deleted successfully
 Flower deleted successfully
 Flower deleted successfully
@@ -41,3 +42,6 @@ Flower not found
 Not Found: /flowers/20/delete/
 Flower deleted successfully
 C:\Users\YoYoY\Desktop\DeskFiles\projects\elec4_crud\mini-flower-database\crud_project\crud_app\urls.py changed, reloading.
+=======
+>>>>>>> 591afd5cd0c022275c5691741f5f54c2959e28f3
+Watching for file changes with StatReloader
