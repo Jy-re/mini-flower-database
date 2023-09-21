@@ -1,9 +1,11 @@
+console.log("JavaScript file loaded.");
 document.addEventListener("DOMContentLoaded", function () {
     var addmodal = document.getElementById("myModal");
     var addButton = document.getElementById("btnAdd");
     var cancelButton = document.getElementById("cancelButton");
     var flowerForm = document.getElementById("flowerForm");
   
+
     addButton.addEventListener("click", function () {
       addmodal.style.display = "block";
     });
@@ -52,3 +54,35 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
   
+//for delete
+//for delete
+document.querySelectorAll(".delete-button").forEach(function (deleteButton) {
+    deleteButton.addEventListener("click", function () {
+        console.error("Delete button clicked");
+        // Declare flowerId within this function's scope
+        var flowerId = deleteButton.getAttribute("data-flower-id");
+        console.log("Delete button clicked for Flower ID: " + flowerId);
+        // Confirm the deletion with the user (optional)
+        var confirmDelete = confirm("Are you sure you want to delete this flower?");
+
+        if (confirmDelete) {
+            // Send an AJAX request to delete the flower
+            $.ajax({
+                url: "/delete_flower/" + flowerId + "/", // Use the correct URL path
+                method: "POST", // Use POST or DELETE method
+                data: {},
+                headers: {
+                    "X-CSRFToken": getCookie("csrftoken") // Include CSRF token from cookies
+                },
+                success: function (data) {
+                    // Handle success (e.g., remove the row from the table)
+                    deleteButton.closest("tr").remove();
+                },
+                error: function (error) {
+                    // Handle error
+                    console.error("Error:", error);
+                }
+            });
+        }
+    });
+});

@@ -2,6 +2,15 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import JsonResponse
 from .models import Flowers
 from .forms import AddFlowerForm
+import logging
+from django.http import HttpResponse
+from django.views.generic import View
+
+class FaviconView(View):
+    def get(self, request, *args, **kwargs):
+        return HttpResponse(status=204)
+
+logger = logging.getLogger(__name__)
 
 def flowers(request):
     # Assuming you have a Flowers model with a queryset
@@ -28,6 +37,7 @@ def add_flower(request):
 
 
 
+
 def edit_flower(request, flower_id):
     flower = get_object_or_404(Flowers, pk=flower_id)
 
@@ -45,6 +55,8 @@ def edit_flower(request, flower_id):
 
     return render(request, 'edit-flower.html', {'form': form, 'flower': flower})
 
+
+
 def get_flower_data(request, flower_id):
     flower = get_object_or_404(Flowers, pk=flower_id)
     data = {
@@ -55,3 +67,21 @@ def get_flower_data(request, flower_id):
         "description": flower.description,
     }
     return JsonResponse(data)
+
+def delete_flower(request, flower_id):
+    try:
+        flower = Flowers.objects.get(pk=flower_id)
+        flower.delete()
+        print("Flower deleted successfully")
+        logger.info("Flower deleted successfully")
+        # Redirect back to the home page
+        return redirect('flowers')
+    except Flowers.DoesNotExist:
+        logger.warning("Flower not found")
+        return HttpResponse("Flower not found", status=404)
+    except Exception as e:
+        logger.error("Error: %s", e)
+        return HttpResponse("Error", status=500)
+
+
+    

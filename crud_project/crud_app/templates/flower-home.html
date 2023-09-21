@@ -25,6 +25,7 @@
         <td>{{ flower.habitat }}</td>
         <td>
           <button class="edit-button" data-flower-id="{{ flower.id }}">Edit</button>
+          <a href="{% url 'delete_flower' flower.id %}">Delete</a>
         </td> <!-- Add edit/delete buttons here -->
       </tr>
       {% endfor %}
