@@ -23,10 +23,13 @@
         <td>{{ flower.scientific_name }}</td>
         <td>{{ flower.season }}</td>
         <td>{{ flower.habitat }}</td>
-        <td>Edit/Delete Buttons</td> <!-- Add edit/delete buttons here -->
+        <td>
+          <button class="edit-button" data-flower-id="{{ flower.id }}">Edit</button>
+        </td> <!-- Add edit/delete buttons here -->
       </tr>
       {% endfor %}
     </table>
   </div>
   {% include 'addflower.html' %}
+  {% include 'edit-flower.html' %}
 {% endblock %}
