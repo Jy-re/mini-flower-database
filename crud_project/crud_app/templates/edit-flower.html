@@ -1,34 +1,36 @@
 {% for flower in flowers %}
     <div id="editModal{{ flower.id }}" class="modal editModal">
         <div class="modal-content">
-            <h3>Edit Flower</h3>
+            <p>Edit Flower</p>
+            <hr>
             <form id="editFlowerForm" data-flower-id="{{ flower.id }}" method="post" action="{% url 'edit_flower' flower.id %}">
                 {% csrf_token %}
                 <!-- Add input fields for editing flower data, similar to the addflower.html form -->
                 <div>
                     <label for="editFlowerName">Flower Name</label>
-                    <input type="text" id="editFlowerName" name="flower_name" placeholder="Flower common name" value="{{ flower.flower_name }}">
+                    <input class="inputField" type="text" id="editFlowerName" name="flower_name" placeholder="Flower common name" value="{{ flower.flower_name }}">
                 </div>
                 <div>
                     <label for="editScientificName">Scientific Name</label>
-                    <input type="text" id="editScientificName" name="scientific_name" placeholder="Flower common name" value="{{ flower.scientific_name}}">
+                    <input class="inputField" type="text" id="editScientificName" name="scientific_name" placeholder="Flower common name" value="{{ flower.scientific_name}}">
                 </div>
                 <div>
                     <label for="editSeason">Season</label>
-                    <input type="text" id="editSeason" name="season" placeholder="Season" value="{{ flower.season }}">
+                    <br>
+                    <input class="inputField" type="text" id="editSeason" name="season" placeholder="Season" value="{{ flower.season }}">
                 </div>
                 <div>
                     <label for="editHabitat">Habitat</label>
-                    <input type="text" id="editHabitat" name="habitat" placeholder="Habitat" value="{{ flower.habitat}}">
+                    <br>
+                    <input class="inputField" type="text" id="editHabitat" name="habitat" placeholder="Habitat" value="{{ flower.habitat}}">
                 </div>
                 <div>
                     <label for="editDescription">Description</label>
-                    <textarea type="text" id="editDescription" name="description" placeholder="Description"> {{ flower.description }} </textarea>
+                    <textarea class="inputField" type="text" id="editDescription" name="description" placeholder="Description"> {{ flower.description }} </textarea>
                 </div>
                 <!-- Add other fields for scientific name, season, habitat, and description -->
                 <div>
-                    <button id="editCancelButton">Cancel</button>
-                    <button type="submit">Save</button>
+                    <button class="save-button" type="submit">Save</button>
                 </div>
             </form>
         </div>
