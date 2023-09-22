@@ -2,9 +2,6 @@ console.log("JavaScript file loaded.");
 document.addEventListener("DOMContentLoaded", function () {
     var addmodal = document.getElementById("myModal");
     var addButton = document.getElementById("btnAdd");
-    var cancelButton = document.getElementById("cancelButton");
-    var flowerForm = document.getElementById("flowerForm");
-  
 
     addButton.addEventListener("click", function () {
       addmodal.style.display = "block";
@@ -15,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
         addmodal.style.display = "none";
       }
     });
+
   
     // AJAX for editing
     document.querySelectorAll(".edit-button").forEach(function (editButton) {
@@ -43,6 +41,13 @@ document.addEventListener("DOMContentLoaded", function () {
   
               // Show the edit modal
               editmodal.style.display = "block";
+
+              window.addEventListener("click", function(event){
+                if (event.target == editmodal){
+                  editmodal.style.display = "none";
+                }
+
+              })
             })
             .catch(function (error) {
               console.error("Error:", error);

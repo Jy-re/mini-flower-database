@@ -1,30 +1,26 @@
 <div id="myModal" class="modal">
     <div class="modal-content">
-      <h3>Add Flowers</h3>
+      <p>Add Flowers</p>
+      <hr>
       
       <form id="flowerForm" action="{% url 'add_flower' %}" method="post">
         {% csrf_token %}
         <div class="label-input">
-          <label for="id_flower_name">Flower Name:</label>
-          <input id="id_flower_name" name="flower_name">
+          <input class="inputField" id="id_flower_name" name="flower_name" placeholder="Flower Common Name">
         </div>
         <div class="label-input">
-            <label for="id_scientific_name">Scientific Name:</label>
-            <input id="id_scientific_name" name="scientific_name"></input>
+            <input class="inputField" id="id_scientific_name" name="scientific_name" placeholder="Scientific Name"></input>
         </div>
         <div class="label-input">
-            <label for="id_season">Season:</label>
-            <input id="id_season" name="season"></input>
+            <input class="inputField" id="id_season" name="season" placeholder="Season"></input>
         </div>
         <div class="label-input">
-            <label for="id_habitat">Habitat:</label>
-            <input id="id_habitat" name="habitat"></input>
+            <input class="inputField" id="id_habitat" name="habitat" placeholder="Habitat"></input>
         </div>
         <div class="label-input">
-            <label for="id_description">Description:</label>
-            <textarea id="id_description" name="description"></textarea>
+            <textarea class="textField" id="id_description" name="description" placeholder="Description"></textarea>
         </div>
-        <button type="submit">Save</button>
+        <button class="save-button" type="submit">Save</button>
   </form>
       </form>
     </div>
