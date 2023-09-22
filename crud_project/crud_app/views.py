@@ -35,9 +35,6 @@ def add_flower(request):
         return render(request, 'flower-home.html', {'flowers': flowers})
     return render(request, 'flower-home.html')  
 
-
-
-
 def edit_flower(request, flower_id):
     flower = get_object_or_404(Flowers, pk=flower_id)
 
@@ -54,8 +51,6 @@ def edit_flower(request, flower_id):
         form = AddFlowerForm(instance=flower)
 
     return render(request, 'edit-flower.html', {'form': form, 'flower': flower})
-
-
 
 def get_flower_data(request, flower_id):
     flower = get_object_or_404(Flowers, pk=flower_id)

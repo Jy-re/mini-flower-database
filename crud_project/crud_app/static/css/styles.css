@@ -1,10 +1,99 @@
 body{
   background-color: #FDF4F5;
+  background-image: url('../imgs/backgroundflowers.png');
+  padding-bottom: 70px;
 }
 
-p{
-    color: red;
+h1 {
+  font-family: Georgia;
+  color: #00a8c9;
 }
+
+hr{
+  background-color: #00a8c9;
+  justify-content: left;
+}
+
+.toolContain{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 5%;
+  margin-right: 5%;
+  
+}
+
+
+/* Test */
+p{
+    color: #00a8c9;
+    font-size: xx-large;
+}
+
+td, tr, th{
+  padding: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+/* Table css for home */
+table{
+  background-color: #C0DBEA;
+  margin: auto;
+  overflow-x: auto;
+  width: 90%;
+}
+
+td{
+  padding: 15px;
+}
+
+th{
+  background-color: white;
+  border-color: white;
+  color: #00a8c9;
+  font-size: larger;
+}
+
+tr{
+  border: none;
+}
+
+tr:nth-child(even){
+  background-color: #E7F6FF;
+}
+
+
+/* Buttons */
+
+.add-button{
+  background-color: #C0DBEA;
+  margin-top: 40px;
+  border-color: white;
+  padding-left: 40px;
+  padding-right: 40px;
+  border-radius: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.edit-button{
+  border: none; /* Remove the border */
+  background-color: transparent;
+  color: #728A2C;
+  font-size: 15px;
+}
+
+.delete-button{
+  text-decoration: none;
+  color: #8A2C7B;
+  font-size: 15px;
+}
+
+
+/* General Modal */
 
 .modal {
     display: none; /* Hidden by default */
