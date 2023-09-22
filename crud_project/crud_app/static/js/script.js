@@ -75,7 +75,7 @@ document.querySelectorAll(".delete-button").forEach(function (deleteButton) {
                     "X-CSRFToken": getCookie("csrftoken") // Include CSRF token from cookies
                 },
                 success: function (data) {
-                    // Handle success (e.g., remove the row from the table)
+                    // Handle success (remove the row from the table)
                     deleteButton.closest("tr").remove();
                 },
                 error: function (error) {
